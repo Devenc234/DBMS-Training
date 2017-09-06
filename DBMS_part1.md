@@ -1,7 +1,7 @@
 <h3> Question and answers </h3>
   <p>  
     
-    <h4> Find out the PG-13 rated comedy movies. DO NOT use the film_list table. </h4>
+    <h2> Find out the PG-13 rated comedy movies. DO NOT use the film_list table. </h2>
     
         select film_id, title, description 
         from film 
