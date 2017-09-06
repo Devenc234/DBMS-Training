@@ -1,3 +1,4 @@
+<body>
 <h3> Question and answers </h3>
   <p>  
     
@@ -17,6 +18,7 @@
                 );
     
    </p>
+   </body>
    
     Find out the top 3 rented horror movies.
     Find out the list of customers from India who have rented sports movies.
