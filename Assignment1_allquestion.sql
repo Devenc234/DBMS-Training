@@ -2,62 +2,110 @@ use sakila;
 
 --    Q1 Find out the PG-13 rated comedy movies. DO NOT use the film_list table.
 
-select film_id, title
-from film 
-	where rating = 'PG-13' and film_id 
-		in 
-        (select film_id from film_category 
-			where category_id 
-            in 
-            (select category_id 
-				from category 
-                where category.name = 'Comedy'
-			)
-		);
+SELECT 
+    film_id, title
+FROM
+    film
+WHERE
+    rating = 'PG-13'
+        AND film_id IN (SELECT 
+            film_id
+        FROM
+            film_category
+        WHERE
+            category_id IN (SELECT 
+                    category_id
+                FROM
+                    category
+                WHERE
+                    category.name = 'Comedy'));
 
 -- alternate command
  
-select f.film_id,f.title 
-	from category c , film_category fc, film f
-		where c.category_id = fc.category_id
-        and c.name = 'Comedy'
-        and fc.film_id = f.film_id
-        and f.rating ='PG-13';
+SELECT 
+    f.film_id, f.title
+FROM
+    category c,
+    film_category fc,
+    film f
+WHERE
+    c.category_id = fc.category_id
+        AND c.name = 'Comedy'
+        AND fc.film_id = f.film_id
+        AND f.rating = 'PG-13';
 
 
 
 --   Q2  Find out the top 3 rented horror movies.
 
-select fl.title , count(all fl.title)
-	from film_list fl, inventory i, rental r
-		where fl.category = 'Horror'
-        and fl.FID = i.film_id
-        and i.inventory_id = r.inventory_id
-        Group by title order by count(all fl.title) desc limit 3;
+SELECT 
+    fl.title, COUNT(ALL fl.title)
+FROM
+    film_list fl,
+    inventory i,
+    rental r
+WHERE
+    fl.category = 'Horror'
+        AND fl.FID = i.film_id
+        AND i.inventory_id = r.inventory_id
+GROUP BY title
+ORDER BY COUNT(ALL fl.title) DESC
+LIMIT 3;
 
 
 
 --   Q3  Find out the list of customers from India who have rented sports movies.
 
-select * from customer_list 
-	where country = 'India' and ID in 
-						(
-							select r.customer_id from film_list fl, inventory i , rental r
-								where fl.category = 'Sports' and fl.FID = i.film_id and r.inventory_id = i.inventory_id
-								Group by r.customer_id
-                        );
+SELECT 
+    *
+FROM
+    customer_list
+WHERE
+    country = 'India'
+        AND ID IN (SELECT 
+            r.customer_id
+        FROM
+            film_list fl,
+            inventory i,
+            rental r
+        WHERE
+            fl.category = 'Sports'
+                AND fl.FID = i.film_id
+                AND r.inventory_id = i.inventory_id
+        GROUP BY r.customer_id);
                         
 --   Q4 Find out the list of customers from Canada who have rented “NICK WAHLBERG” movies.
 
-select * from customer_list cl
-	where cl.country = 'Canada' and ID in
-    (
-select r.customer_id from actor a, film_actor fa, inventory i, rental r
-	where a.first_name = 'NICK' and a.last_name = 'WAHLBERG' and a.actor_id = fa.actor_id
-			and fa.film_id = i.film_id and i.inventory_id = r.inventory_id);
+SELECT 
+    *
+FROM
+    customer_list cl
+WHERE
+    cl.country = 'Canada'
+        AND ID IN (SELECT 
+            r.customer_id
+        FROM
+            actor a,
+            film_actor fa,
+            inventory i,
+            rental r
+        WHERE
+            a.first_name = 'NICK'
+                AND a.last_name = 'WAHLBERG'
+                AND a.actor_id = fa.actor_id
+                AND fa.film_id = i.film_id
+                AND i.inventory_id = r.inventory_id);
             
 --   Q5  Find out the number of movies in which “SEAN WILLIAMS” acted.
 
-select count(distinct fa.film_id) 
-	from actor a,film_actor fa 
-		where a.first_name ='SEAN' and a.last_name='WILLIAMS' and fa.actor_id = a.actor_id;
+SELECT 
+    COUNT(DISTINCT fa.film_id)
+FROM
+    actor a,
+    film_actor fa
+WHERE
+    a.first_name = 'SEAN'
+        AND a.last_name = 'WILLIAMS'
+        AND fa.actor_id = a.actor_id;
+        
+        
