@@ -1,0 +1,10 @@
+INSERT INTO `new_EPschema`.`Employee` (`Employee_name`, `Employee_email`) VALUES ('Devendra', 'deven');
+INSERT INTO `new_EPschema`.`Employee` (`Employee_name`, `Employee_email`) VALUES ('Vikas', 'vikky');
+INSERT INTO `new_EPschema`.`Employee` (`Employee_name`, `Employee_email`) VALUES ('Surya', 'surya');
+INSERT INTO `new_EPschema`.`Employee` (`Employee_name`, `Employee_email`) VALUES ('Gaurav', 'gaurry');
+INSERT INTO `new_EPschema`.`Employee` (`Employee_name`, `Employee_email`) VALUES ('Shashwat', 'shashi');
+INSERT INTO `new_EPschema`.`Employee` (`Employee_name`, `Employee_email`) VALUES ('Mudit', 'mudi');
+INSERT INTO `new_EPschema`.`Employee` (`Employee_name`, `Employee_email`) VALUES ('Atul', 'atti');
+INSERT INTO `new_EPschema`.`Employee` (`Employee_name`, `Employee_email`) VALUES ('Godara', 'godu');
+INSERT INTO `new_EPschema`.`Employee` (`Employee_name`, `Employee_email`) VALUES ('Ramlal', 'ramu');
+INSERT INTO `new_EPschema`.`Employee` (`Employee_name`, `Employee_email`) VALUES ('Suyash', 'gd');
