@@ -1,0 +1,48 @@
+Design a database schema for a movie and tv series database using the E-R model and design tables accordingly using the relationship model. The necessary information is given below :
+
+ 
+
+Entities : Movie, Actors, TV series
+
+A TV series or a movie must have an actor. An actor can act in both.
+
+
+Assume columns accordingly and mention primary keys, weak and strong entities
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Primary Keys:
+
+Actors
+--------
+idActors 
+
+TVseries
+--------
+idTVseries
+actorID (FK Actor)
+
+Movies
+-------
+idMovies
+actorID (FK Actor)
+
+
+
+
+TVseries and Movies are weak entity as they can't exist without an actor.
+
+Actors is strong entity as actor can exist without any movie or tvseries. It is independent of others entity.
