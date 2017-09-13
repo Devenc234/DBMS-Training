@@ -1,0 +1,21 @@
+Booking is a weak entity.
+Customer and Hotel are strong entity.
+
+
+PrimaryKeys:
+
+
+Customer:
+-----------
+idCustomer
+
+Booking:
+-----------
+customerID
+BookingDate
+hotelID
+
+Hotel:
+-----------
+idHotel
+
