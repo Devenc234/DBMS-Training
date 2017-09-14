@@ -1,0 +1,45 @@
+Design a database schema for a software development firm using the E-R model and design tables accordingly using the relationship model. The necessary information is given below :
+
+ 
+
+Entities : Employees, Projects.
+
+One employee will report to only one person. One person can be reported by many people.
+
+One employee will be part of only one project. One project may have multiple employees.
+
+Each project must have an employee. There cannot be a project with no employees.
+
+Assume columns accordingly and mention primary keys, weak and strong entities.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Primary Keys:
+
+Employee
+----------
+idEmployee
+
+
+
+Projects
+---------
+idProjects
+
+
+
+
+Strong (Employee) -------------- (Projects) Weak
+Strong (Employee : idEmployee) -------------- (Employee: MangaerID ) Weak 
