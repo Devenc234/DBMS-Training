@@ -1,0 +1,62 @@
+Design a database schema for a banking app using the E-R model and design tables accordingly using the relationship model. The necessary information is given below :
+
+ 
+
+Entities : Accounts, Customer, Branches
+
+Each customer must have an account. Joint accounts are allowed.
+
+A customer can have multiple accounts in different branch, but not in same branch.
+
+A branch can have many accounts.
+
+
+Assume columns accordingly and mention primary keys, weak and strong entities.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Primary Keys:
+
+
+Accounts
+---------
+ac_number
+
+
+Customer
+---------
+idCustomer 
+Primary_ac (FK Accounts)
+
+
+AllAccounts
+------------
+branchID (FK Customer)
+customer ID (FK Braches)
+
+From the constraint that one branch should have one customer account only
+
+Branches
+--------
+idBranches
+
+
+
+(Strong) Branches -------------- AllAccounts (weak)
+(Strong) Accounts -------------- AllAccounts (weak)
+(Strong) Customers -------------- AllAccounts (weak)
+(Strong) Accounts -------------- Customer (weak)
